@@ -1,0 +1,1 @@
+# odoo13_technical_training
