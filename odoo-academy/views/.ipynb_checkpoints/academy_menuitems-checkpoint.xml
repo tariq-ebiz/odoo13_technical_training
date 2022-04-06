@@ -13,9 +13,9 @@
         </record>
         
         
-        <menuitem id="menu_academy" name ="Odoo Academy" sequance ="1"/>
+        <menuitem  name ="Odoo Academy" id="menu_academy" sequance ="1"/>
         <menuitem id="menu_academy_sub" name ="Odoo Academy" parent="menu_academy" sequance ="2"/>
-        <menuitem id="menu_academy_courses" name ="Courses" parent ="menu_academy_sub" sequance ="3" action ="cousre_list_action"/>
+        <menuitem id="menu_academy_courses" name ="Courses" parent ="menu_academy_sub" sequance ="3" action ="course_list_action"/>
         
     </data>
 </odoo>
