@@ -1,7 +1,36 @@
 # -*- coding: utf-8 -*_
-from odoo import models, fields, api
 
-class Course(models.Modle):
+from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError
+
+class Course(models.Model):
     
-    _name = 'academy.cousrse'
+    _name = 'academy.course'
     _description ='Course Info'
+    
+    name = fields.Char(string='Title',required=True)
+    description = fields.Text(string='Description')
+    level = fields.Selection(string ='Level',
+                             selection=[('beginner','Beginner'),
+                                       ('intermediate','Intermediate'),
+                                       ('advanced','Advanced')],
+                            copy=False)
+
+    active = fields.Boolean(string='Active', default = True)
+    base_price = fields.Float(string='Base Price', default=0.00)
+    additional_fee = fields.Float(string='Additional Fee', default=10.00)
+    total_price = fields.Float(string='Total Price', readonly=True)
+    
+    @api.onchange('base_price','additional_fee')
+    def _onchange_total_price(self):
+        if self.base_price < 0.00:
+            raise UserError('Base Price cannot be set as Neqative')
+         
+        
+        self.total_price = self.base_price + self.additional_fee
+        
+    @api.constrains('additional_fee')
+    def _check_additional_fee(self):
+        for record in self:
+            if record.additional_fee < 10.00:
+                raise ValidationError('Additional Fee cannot be less then 10.00: %s' % record.addtional_fee)
