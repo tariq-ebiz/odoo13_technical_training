@@ -36,5 +36,6 @@
                     <field name ="instructor_id"/>
                 </tree>
             </field>
+        </record>
     </data>    
 </odoo>
