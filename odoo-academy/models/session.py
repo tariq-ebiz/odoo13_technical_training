@@ -22,7 +22,7 @@ class Session(models.Model):
                               default=1)
     end_date = fields.Date(string='End Date',
                            compute='_compute_end_date',
-                           inverse='inverse_end_date',
+                           inverse='_inverse_end_date',
                            store=True)
     
     
