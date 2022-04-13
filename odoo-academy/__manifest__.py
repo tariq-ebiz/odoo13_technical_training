@@ -19,6 +19,7 @@
         'views/course_views.xml',
         'views/session_views.xml',
         'views/sales_views_inherit.xml',
+        'views/product_template_inherit.xml',
     ],
     'demo':[
         'demo/academy_demo.xml',
