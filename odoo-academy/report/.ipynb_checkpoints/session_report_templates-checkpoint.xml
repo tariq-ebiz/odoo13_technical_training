@@ -18,7 +18,7 @@
                             <t t-if="doc.start_date">
                                 <span t-field="doc.start_date" />
                             </t>
-                            to
+                            to 
                             <t t-if="doc.end_date">
                                 <span t-field="doc.end_date" />
                             </t>
